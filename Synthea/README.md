@@ -1,0 +1,1 @@
+Synthea is an open-source synthetic patient data generator developed primarily for healthcare research and testing purposes.
