@@ -4,7 +4,7 @@
     "allergies.csv",
     "conditions.csv", 
     "Synthetic ML Encounter Data.csv",
-    "patients.csv",
+    "Synthetic ML Patient Data.csv",
     "medications.csv",
     "procedures.csv"
   ]
