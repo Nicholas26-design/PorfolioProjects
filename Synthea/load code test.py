@@ -2,8 +2,20 @@ import pandas as pd
 import requests
 import json
 from urllib.parse import quote
+import logging
+from datetime import datetime
 
-def load_synthea_data(config_path=None, config_url=None):
+# Set up logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(message)s',
+    handlers=[
+        logging.FileHandler(f'synthea_load_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'),
+        logging.StreamHandler()
+    ]
+)
+
+def load_synthea_data(config_path=None, config_url=None, error_log_path="error_log.txt"):
     # Load config from local file or URL
     if config_url:
         config_response = requests.get(config_url)
@@ -27,7 +39,11 @@ def load_synthea_data(config_path=None, config_url=None):
             data[key] = df
             print(f"Loaded {file}: {len(df)} rows")
         except Exception as e:
-            print(f"Error loading {file}: {e}")
+            logging.error(f"Error loading {file}: {e}")
+            # error_message = f"Error loading {file}: {e}\n"
+            # print(error_message.strip())
+            # with open(error_log_path, "a") as log_file:
+            #     log_file.write(error_message)
     
     return data
 
