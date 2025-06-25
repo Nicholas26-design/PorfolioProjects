@@ -52,5 +52,7 @@ def load_synthea_data(config_path=None, config_url=None, error_log_path="error_l
 # synthea_data = load_synthea_data(config_path='synthea_config.json')
 
 # Or from GitHub-hosted JSON config
-config_url = "https://raw.githubusercontent.com/Nicholas26-design/PorfolioProjects/main/Synthea/synthea_config.json"
+config_url = "https://raw.githubusercontent.com/Nicholas26-design/PorfolioProjects/main/Synthea/synthea_config"
+
+# config_url = "https://raw.githubusercontent.com/Nicholas26-design/PorfolioProjects/main/Synthea/synthea_config.json"
 synthea_data = load_synthea_data(config_url=config_url)
